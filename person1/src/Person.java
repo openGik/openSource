@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * С помощью цикла вывести информацию только о сотрудниках старше 40 лет;
  */
 public class Person {
-    private String name , lastname , surname , number , job;
+    private String name , lastname , surname , number , job , email;
     private double zp , value;
     private int age ;
     Person(){
@@ -31,12 +31,13 @@ public class Person {
         this.zp = 125666.23;
         this.age = 45;
     }
-    Person(String name ,String surname , String lastname , String number , String job , double zp , int age){
+    Person(String name ,String surname , String lastname , String number , String job ,String email , double zp , int age){
         this.name = name;
         this.surname = surname;
         this.lastname = lastname;
         this.number = number;
         this.job =job;
+        this.email = email;
         this.zp = zp;
         this.age = age;
     }
@@ -85,7 +86,7 @@ public class Person {
                if(age<value)
                    printPersonAll();
                break;
-           case "==":
+           case "=":
                if(age==value)
                    printPersonAll();
                break;
@@ -96,6 +97,6 @@ public class Person {
     }
 
     public void printPersonAll(){
-        System.out.println(name+" "+surname+" "+lastname+" "+number+" "+job+" "+zp+" "+age);
+        System.out.println(name+" "+surname+" "+lastname+" "+number+" "+job+" "+email+" "+zp+" "+age);
     }
 }
