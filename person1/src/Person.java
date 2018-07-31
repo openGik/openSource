@@ -48,32 +48,32 @@ public class Person {
         char znak[] = {'>', '<' , '='};
         boolean flag = false;
         int size_usl =usl.length();
-        for(int i = 1 ; i < size_usl ; i++)
-        result+=usl.charAt(i);
-        value = new Double(result);
-        result="";
+        if(usl!="") {
+            for (int i = 1; i < size_usl; i++)
+                result += usl.charAt(i);
+            value = new Double(result);
+            result = "";
 
-       for(int i = 0 ; i < size_usl ; i++){
-           if(znak[0]!=usl.charAt(0)&&!flag&&i!=size_usl){
-               for(int j = 1 ; j<znak.length ; j++){
-                   if(znak[j]==usl.charAt(i)){
-                       result+=znak[j];
-                       flag =true;
-                       break;
-                   }
-               }
-           }
-           else{
-               result+=znak[0];
-               flag = true;
-               break;
-           }
-           if(flag)
-               break;
+            for (int i = 0; i < size_usl; i++) {
+                if (znak[0] != usl.charAt(0) && !flag && i != size_usl) {
+                    for (int j = 1; j < znak.length; j++) {
+                        if (znak[j] == usl.charAt(i)) {
+                            result += znak[j];
+                            flag = true;
+                            break;
+                        }
+                    }
+                } else {
+                    result += znak[0];
+                    flag = true;
+                    break;
+                }
+                if (flag)
+                    break;
 
 
-
-       }
+            }
+        }
         return  result;
     }
     public void printPersonAgeUsl(String usl){
@@ -90,8 +90,9 @@ public class Person {
                if(age==value)
                    printPersonAll();
                break;
-
-
+            default:
+                printPersonAll();
+                break;
 
        }
     }
