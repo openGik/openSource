@@ -9,41 +9,24 @@ import java.util.Random;
  5. * Добавить животным разброс в ограничениях. То есть у одной собаки ограничение на бег может быть 400 м., у другой 600 м.
  */
 public class Cat extends Animal {
-    protected int age;
-    protected final int speed_size_max = new Random().nextInt(1000);
-    protected final int swing_size_max = 0;
-    protected final int  jump_size_max = new Random().nextInt(50);
-    private boolean flag_swim = false , flag_speed = false , flag_jump = false;
 Cat(String name , int age){
 super(name);
 this.age = age ;
 }
     public void speed() {
         super.speed();
-        if(speed<speed_size_max)
-            flag_speed = true;
-
     }
 
     public void swing() {
         super.swing();
-        if(swing<swing_size_max)
-            flag_swim = true;
     }
 
     public void jump() {
         super.jump();
-        if(jump<jump_size_max)
-            flag_jump = true;
-    }
-
-    public boolean run(){
-            if(flag_speed||flag_jump||flag_swim)
-                return true;
-        return false;
     }
 
     public void info_animal_cat(){
-        System.out.println(name+" age "+age+"  speed "+speed_size_max+" swim "+swing_size_max+" jump "+jump_size_max);
+        super.info_animal();
     }
+
 }

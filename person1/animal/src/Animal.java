@@ -13,6 +13,11 @@ import java.util.Random;
  */
 public class Animal{
    protected String name;
+    protected int age;
+    protected boolean flag_swim = false , flag_speed = false , flag_jump = false;
+    protected final int speed_size_max = new Random().nextInt(1000);
+    protected  int swing_size_max = 0 ;
+    protected final int  jump_size_max = new Random().nextInt(50);
     protected int speed , swing , jump;
     Animal(String name){
         this.name = name;
@@ -21,12 +26,40 @@ public class Animal{
     Animal(){}
     protected   void speed(){
         speed = new Random().nextInt(1000);
+        if(speed<speed_size_max)
+            flag_speed = true;
      };
     protected void swing(){
         swing = new Random().nextInt(1000);
+        if(swing<swing_size_max)
+            flag_swim = true;
      };
     protected  void jump(){
         jump = new Random().nextInt(1000);
+        if(jump<jump_size_max)
+            flag_jump = true;
      };
+    protected void info_animal(){
+        System.out.println(name+" age "+age+"  speed "+speed_size_max+" swim "+swing_size_max+" jump "+jump_size_max);
+    }
+    protected boolean run(){
+        if(flag_speed||flag_jump||flag_swim){
+            if(flag_jump){
+                System.out.println("jump");
+                flag_jump = false;
+            }
+            else if(flag_speed){
+                System.out.println("speed");
+                flag_speed = false;
+            }
+            else{
+                System.out.println("swim");
+                flag_swim = false;
+            }
+            return true;
+        }
 
+
+        return false;
+    }
 }
