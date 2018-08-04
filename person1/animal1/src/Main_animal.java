@@ -7,5 +7,7 @@ public class Main_animal {
         Dog dog = new Dog("puh",17);
         dog.info_animal();
         dog.info_animal_dog();
+        cat.info_animal();
+        cat.info_animal_cat();
         }
 }
